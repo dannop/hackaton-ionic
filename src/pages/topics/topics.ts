@@ -27,10 +27,6 @@ export class TopicsPage {
       }
   }
 
-  ionViewWillLoad(){
-    
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicsPage');
     this.getTopics();
@@ -49,13 +45,13 @@ export class TopicsPage {
 
   getTopic(id: string){
     this.http.get(this.URL_da_API+"topics/"+id)
-          .subscribe(dados => {
-            this.topic = dados.json();
-            this.navCtrl.push(TopicShowPage, { topic: this.topic });
-        return dados;
-          }, e => {
-          console.log(e);
-        });
+      .subscribe(dados => {
+        this.topic = dados.json();
+        this.navCtrl.push(TopicShowPage, { topic: this.topic });
+    return dados;
+      }, e => {
+      console.log(e);
+    });
   }
 
   destroyTopic(id: string){

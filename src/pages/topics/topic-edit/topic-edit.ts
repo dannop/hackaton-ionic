@@ -11,7 +11,7 @@ import { Http, Response } from '@angular/http';
 export class TopicEditPage {
   URL_da_API: string = "/herokuapi/";
   topic: Response;
-  resposta: Response;
+  response: Response;
 
   constructor(
     public navCtrl: NavController, 
@@ -32,8 +32,8 @@ export class TopicEditPage {
   updateTopic(id: string){
     this.http.put(this.URL_da_API+"topics/"+id, this.topic)
       .subscribe(data => {
-        this.resposta = data.json();
-        this.navCtrl.push(TopicShowPage, { parceiro: this.resposta });
+        this.response = data.json();
+        this.navCtrl.push(TopicShowPage, { topic: this.response });
         return data;
       }, error => {
         console.log(error);

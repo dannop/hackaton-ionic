@@ -13,7 +13,6 @@ export class TopicShowPage {
   URL_da_API: string = "/herokuapi/";
   topic: Response;
   
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public platform: Platform) {
     if (this.platform.is("cordova")){
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
