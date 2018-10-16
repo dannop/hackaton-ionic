@@ -8,7 +8,8 @@
 
 
 <ion-content padding>
-  {{ topic.content }}
+  <h3> {{ topic.category.name }} </h3>
+  <p> {{ topic.content }} </p>
 
   <button ion-fab class="btn-edit" (click) = "goToEdit()">
     <ion-icon name="edit"></ion-icon>

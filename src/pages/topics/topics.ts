@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Http, Response } from "@angular/http";
 import { TopicShowPage } from './topic-show/topic-show';
+import { TopicNewPage } from './topic-new/topic-new';
 
 @IonicPage()
 @Component({
@@ -64,6 +65,10 @@ export class TopicsPage {
       }, e => {
       console.log(e);
     });
+  }
+
+  goToNew(){
+    this.navCtrl.push(TopicNewPage);
   }
 
   showSearchbar() {
