@@ -10,10 +10,18 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { UsersPage } from '../pages/users/users';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../config';
+
+import { AuthService } from '../services/auth.service';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    UsersPage
+    UsersPage,
+    SignupPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    NgxErrorsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,12 +48,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage,
-    UsersPage
+    UsersPage,
+    SignupPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireAuth,
+    AuthService
   ]
 })
 export class AppModule {}
