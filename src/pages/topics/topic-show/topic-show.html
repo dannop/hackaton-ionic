@@ -1,0 +1,16 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ topic.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  {{ topic.content }}
+
+  <button ion-fab class="btn-edit" (click) = "goToEdit()">
+    <ion-icon name="edit"></ion-icon>
+  </button>
+</ion-content>

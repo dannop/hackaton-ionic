@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar {{ topic.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="updateTopic(topic.id)">
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" [(ngModel)]="topic.title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Conteudo</ion-label>
+      <ion-textarea [(ngModel)]="topic.content" name="content"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Editar topic</button>
+  </form>
+</ion-content>

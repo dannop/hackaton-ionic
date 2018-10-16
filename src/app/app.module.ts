@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -22,11 +21,12 @@ import { firebaseConfig } from '../config';
 
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { PipesModule } from '../pipes/pipes.module';
+import { TopicsPageModule } from '../pages/topics/topics.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -38,13 +38,14 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     BrowserModule,
     HttpModule,
     NgxErrorsModule,
+    PipesModule,
+    TopicsPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
     HomePage,
     TabsPage,

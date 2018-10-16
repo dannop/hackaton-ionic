@@ -1,18 +1,46 @@
-<!--
-  Generated template for the TopicsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>topics</ion-title>
+    <ion-title>Tópicos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+    <div class = "searchbar-container hidden-container">
+        <ion-searchbar class="searchbar-topics hidden" [showCancelButton]="true" [(ngModel)]="terms"
+        (ionCancel)="showSearchbar()" placeholder="Digite o nome do tópico"></ion-searchbar>
+      </div>
+    
+      <ion-grid class = "grid-user-topics">
+        <ion-row  *ngFor="let topic of topics | topicsSearch : terms | sort: {property: column, order: order}">
+          <ion-col nowrap class = "topic-texto">
+            <div class = "col-content-wrapper" (click) ="getTopic(topic.id)">
+              <ion-item no-padding class = "item-topic">
+                <h2>{{ topic.title }}</h2>
+                <button class = "btn-close" ion-button icon-only small (click) ="destroyTopic(topic.id)" float-right>
+                  <ion-icon name = "md-close"></ion-icon>
+                </button>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <ion-fab right bottom>
+        <button ion-fab class="btn-search botao-searchbar" (click) = "showSearchbar()">
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-fab>
+    
+      <ion-fab left bottom>
+        <button ion-fab class="btn-search">
+          <ion-icon name="pm-cogs"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+          <button ion-fab class="btn-search" (click)="filtroAlfabetico()">
+            <p>A-z</p>
+          </button>
+        </ion-fab-list>
+      </ion-fab>
 </ion-content>
