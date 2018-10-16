@@ -1,22 +1,58 @@
-<ion-header>
+ion<ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title >BILU</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-
-  <button (click)="openUsers()">
-    <p>Usuários</p>
-  </button>
+    <ion-grid>
+     <ion-row>
+       <ion-col col-4>
+          <ion-avatar  item-start >
+              <img  id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar"> 
+     
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-8 col-xl-16>
+            <ion-row> 
+              <ion-col>
+                      <h1>DANNO DANNO  </h1>    
+              </ion-col>
+            </ion-row>
+            <ion-row> 
+              <ion-col>
+                    <h1>Level 100 </h1>    
+                    <div id="achievement">
+                      <div id="AC1" class="AC" >
+                        <img src="" alt="">
+                        <ion-icon name="book"></ion-icon>
+                      </div>
+                      <div id="AC2" class="AC">
+                          <img src="" alt="">
+                          <ion-icon name="compass"></ion-icon>
+                      </div>
+                      <div id="AC3" class="AC">
+                          <img src="" alt=""><!-- the -->
+                          <ion-icon name="create"></ion-icon>
+                      </div>
+                    </div>
+              </ion-col>
+            </ion-row>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+ <div>
+    <button class="BTH" (click)="openMain()">
+        <p>Descobrir</p>
+      </button>
+      <br>
+    <button class="BTH" (click)="openMain()">
+          <p>Preferencias</p>
+        </button>
+      <br>
+    <button class="BTH" (click)="openMain()">
+            <p>Favoritos</p>
+      </button>
+      <br>
+ </div>
 
 </ion-content>
