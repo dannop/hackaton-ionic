@@ -1,12 +1,31 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>discover</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Descobrindo</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <h1>{{ topic.title }}</h1>
+  <p>{{ topic.content }}</p>
 
+  
+  <ion-fab right bottom>
+    <button ion-button *ngIf="like==null" (click)="createLike()"> <img id="img" src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
+  </ion-fab>
+
+  <ion-fab right bottom>
+    <button ion-button color="dark" *ngIf="like!=null" (click)="removeLike(user.id)" block ><img id="img" src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
+  </ion-fab>
+    
+    
+  <ion-fab left bottom>
+    <button ion-button *ngIf="dislike==null" (click)="createDislike()"><img id="img2" src="../../../assets/imgs/dislike.png" ></button>
+  </ion-fab>
+
+  <ion-fab left bottom>
+    <button ion-button color="dark" *ngIf="dislike!=null" (click)="removeDislike(user.id)" block ><img id="img2" src="../../../assets/imgs/dislike.png" ></button>
+  </ion-fab>
+  
+  
 </ion-content>

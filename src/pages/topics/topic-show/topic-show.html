@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="dark">
-    <ion-title>{{ topic.category.name  }}</ion-title>
+    <ion-title>{{topic.title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,14 +15,14 @@
 
   <ion-fab right top>
       <button id="bt_dir" ion-button *ngIf="like==null" (click)="createLike()" block> <img id="img" src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
-      <button id="bt_dir" ion-button color="dark" *ngIf="like!=null" (click)="removeLike(1)" block ><img id="img" src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
+      <button id="bt_dir" ion-button color="dark" *ngIf="like!=null" (click)="removeLike(user.id)" block ><img id="img" src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
   </ion-fab>
   
   <ion-fab left top>
     <button id="bt_esq" ion-button *ngIf="dislike==null" (click)="createDislike()" block><img id="img2" src="../../../assets/imgs/dislike.png" ></button>
-    <button id="bt_esq" ion-button color="dark" *ngIf="dislike!=null" (click)="removeDislike(1)" block ><img id="img2" src="../../../assets/imgs/dislike.png" ></button>
+    <button id="bt_esq" ion-button color="dark" *ngIf="dislike!=null" (click)="removeDislike(user.id)" block ><img id="img2" src="../../../assets/imgs/dislike.png" ></button>
   </ion-fab>
-  <h3 align="center">{{topic.title}}</h3>
+  <h3>Categoria: {{ topic.category.name }}</h3>
   <br>
   <p> {{ topic.content }} </p>
   <ion-grid class = "grid-user-topics">

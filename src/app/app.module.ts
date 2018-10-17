@@ -29,6 +29,7 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { FavoritesPageModule } from '../pages/favorites/favorites.module';
+import { DiscoverPageModule } from '../pages/discover/discover.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FavoritesPageModule } from '../pages/favorites/favorites.module';
     TopicsPageModule,
     PerfilPageModule,
     FavoritesPageModule,
+    DiscoverPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
