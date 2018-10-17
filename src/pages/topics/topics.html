@@ -18,7 +18,7 @@
             <div class = "col-content-wrapper" (click) ="getTopic(topic.id)">
               <ion-item no-padding class = "item-topic">
                 <h2>{{ topic.title }}</h2>
-                <button color="danger" class="btn-remove" ion-button icon-only small round (click) ="destroyComment(c.id)" float-right>
+                <button *ngIf="user.admin==true" color="danger" class="btn-remove" ion-button icon-only small round (click) ="destroyComment(c.id)" float-right>
                   <ion-icon name = "md-close"></ion-icon>
                 </button>
               </ion-item>

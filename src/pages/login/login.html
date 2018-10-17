@@ -1,14 +1,18 @@
 <ion-header>
-	<ion-navbar>
+	<ion-navbar color="dark">
 		<button ion-button menuToggle>
 			<ion-icon name="menu"></ion-icon>
 		</button>
-		<ion-title>Log in</ion-title>
+		<ion-title>Bilu</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content>
 	<div id="Login">
+		<div class="logo">
+			<img src="../../assets/imgs/logo.png" alt="logo">
+		</div>
+
 		<form (ngSubmit)="login()" [formGroup]="loginForm">
 			<ion-list inset>
 
@@ -32,7 +36,7 @@
 			<div padding-horizontal>
 				<div class="form-error">{{loginError}}</div>
 
-				<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
+				<button ion-button color="dark" ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
 				<!--<div class="login-footer">
 					<p>
 						<a href="#">Forgot password?</a>
@@ -47,7 +51,7 @@
 						Log in with Google
 					</button>-->
 
-					<button ion-button icon-left block clear (click)="signup()">
+					<button ion-button color="dark" icon-left block clear (click)="signup()">
 						<ion-icon name="person-add"></ion-icon>
 						Cadastre-se
 					</button>
