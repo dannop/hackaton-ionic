@@ -10,10 +10,18 @@
 }
 
 .nav-btn{
-    background-color: light;
+    background-color: #FFE066;
     display: block;
     font-size: 150%;
     margin: 0 auto;
     margin-top: 10%;
     width: 65%;
+}
+
+#achievement .item{
+    width: 40px;
+}
+
+.item > ion-icon, .item-inner > ion-icon {
+    font-size: 3.5rem;
 }

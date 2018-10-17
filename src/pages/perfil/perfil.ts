@@ -16,7 +16,7 @@ export class PerfilPage {
   URL_da_API: string = "/herokuapi/";
   user: any;
   response: any;
-  imgPreview = 'assets/imgs/Logo.png';
+  imgPreview = 'assets/imgs/logo.png';
 
   constructor(
     public navCtrl: NavController, 

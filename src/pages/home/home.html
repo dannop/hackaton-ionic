@@ -19,38 +19,38 @@
         </ion-avatar>
       </ion-col>
         
-        <ion-col col-8 col-xl-16>
-            <ion-row> 
-              <ion-col>
-                  <h1 *ngIf="user.first_name != ''"> {{ user.first_name }}</h1>
-                  <h1 *ngIf="user.first_name == ''"> Preencha seu nome</h1>  
-              </ion-col>
-            </ion-row>
-            <ion-row> 
-              <ion-col>
-                    <h1>Level {{ user.level }} </h1>    
-                    <div id="achievement">
-                      <div id="AC1" class="AC" >
-                        <img src="" alt="">
-                        <ion-icon name="book"></ion-icon>
-                      </div>
-                      <div id="AC2" class="AC">
-                          <img src="" alt="">
-                          <ion-icon name="compass"></ion-icon>
-                      </div>
-                      <div id="AC3" class="AC">
-                          <img src="" alt="">
-                          <ion-icon name="create"></ion-icon>
-                      </div>
-                    </div>
-              </ion-col>
-            </ion-row>
-        </ion-col>
-      </ion-row>
+      <ion-col col-8 col-xl-16>
+        <ion-row> 
+          <ion-col>
+            <h1 *ngIf="user.first_name != ''"> {{ user.first_name }} {{ user.last_name }}</h1>
+            <h1 *ngIf="user.first_name == ''"> Cadastre-se </h1>
+            <h1 *ngIf="user.level != ''">Level: {{ user.level }} </h1> 
+            <h1 *ngIf="user.level == ''">Level: Não Disponível </h1> 
+          </ion-col>
+        </ion-row>
+          
+        <ion-row> 
+          <ion-col>          
+            <div id="achievement">
+              <div class="item">
+                <ion-icon name="book"></ion-icon>
+              </div> 
+              <div class="item">                
+                <ion-icon name="compass"></ion-icon>
+              </div>
+              <div class="item">
+                <ion-icon name="create"></ion-icon>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
 
-      <ion-row *ngIf="user == undefined"> 
-        <h1>Complete seus dados aqui</h1>
-      </ion-row>
+    <ion-row *ngIf="user == undefined"> 
+      <h1>Dados Incompletos</h1>
+    </ion-row>
+
   </ion-grid>
  <div>
     <button class="nav-btn" (click)="openTopics()">
