@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { TopicShowPage } from '../topic-show/topic-show';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -13,13 +14,15 @@ export class TopicNewPage {
   URL_da_API: string = "/herokuapi/";
   title: string;
   content: string;
-  user_id: string;
+  user: any;
+
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public platform: Platform,
-    public http: Http) {
+    public http: Http,
+    public storage: Storage) {
 
     if (this.platform.is("cordova")){
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
@@ -28,13 +31,14 @@ export class TopicNewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicNewPage');
+    this.storage.get('token').then((val) => {this.user = val; });
   }
 
   createTopic(){
     let topic = {
       title: this.title,
       content: this.content, 
-      user_id: 1,
+      user_id: this.user.id,
       category_id: 1 
     }
     
