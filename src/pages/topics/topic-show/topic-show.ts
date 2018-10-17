@@ -87,37 +87,9 @@ export class TopicShowPage {
     });
   }
 
-  presentToastLike() {
+  presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'Você gostou do tópico!',
-      duration: 3000,
-      position: 'top'
-    });
-  
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
-    toast.present();
-  }
-
-  presentToastDislike() {
-    let toast = this.toastCtrl.create({
-      message: 'Você não gostou do tópico!',
-      duration: 3000,
-      position: 'top'
-    });
-  
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-  
-    toast.present();
-  }
-
-  presentToastRemove() {
-    let toast = this.toastCtrl.create({
-      message: 'Você removeu!',
+      message: 'Atualizado com sucesso!',
       duration: 3000,
       position: 'top'
     });
@@ -148,22 +120,10 @@ export class TopicShowPage {
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/like/" + this.user.id, like)
     .subscribe(data => {
       this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
-      this.presentToastLike()
+      this.presentToast();
       return data;
     }, error => {
       console.log(error);
-    });
-  }
-
-  removeLike(id: string){
-    this.http.delete(this.URL_da_API+"topics/" + this.topic.id + "/like/" + id)
-      .subscribe(dados => {
-        const index = this.likes.findIndex(est => est.id === parseInt(id));
-        this.likes.splice(index, 1);
-        this.presentToastRemove();
-        return dados;
-      }, e => {
-      console.log(e);
     });
   }
 
@@ -185,23 +145,12 @@ export class TopicShowPage {
 
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/dislike/" + this.user.id, dislike)
     .subscribe(data => {
+      console.log(data.json());
       this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
-      this.presentToastDislike()
+      this.presentToast();
       return data;
     }, error => {
       console.log(error);
-    });
-  }
-
-  removeDislike(id: string){
-    this.http.delete(this.URL_da_API+"topics/" + this.topic.id + "/dislike/" + id)
-      .subscribe(dados => {
-        const index = this.dislikes.findIndex(est => est.id === parseInt(id));
-        this.dislikes.splice(index, 1);
-        this.presentToastRemove();
-        return dados;
-      }, e => {
-      console.log(e);
     });
   }
 

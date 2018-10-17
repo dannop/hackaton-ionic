@@ -11,12 +11,10 @@
     <p> {{ topic.content }} </p>
     <div class ="container">
       <div>
-        <button class="BT" *ngIf="like==null" (click)="createLike()" block> <img src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
-        <button class="BT" color="dark"   *ngIf="like!=null" (click)="removeLike(user.id)" block ><img  src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
+        <button class="BT" (click)="createLike()" block> <img src="../../../assets/imgs/Like.png" alt="Gostei" > </button>
       </div>
       <div >
-        <button class="BT"  *ngIf="dislike==null" (click)="createDislike()" block><img   src="../../../assets/imgs/dislike.png" ></button>
-        <button class="BT"  color="dark" *ngIf="dislike!=null" (click)="removeDislike(user.id)" block ><img src="../../../assets/imgs/dislike.png" ></button>
+        <button class="BT" (click)="createDislike()" block><img src="../../../assets/imgs/dislike.png" ></button>
       </div>
     </div>
     <ion-grid class = "grid-user-topics">
