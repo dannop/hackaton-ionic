@@ -18,7 +18,7 @@ export class HomePage {
   users: any = [];
   user: any;
 
-  firtAchv: any;
+  firstAchv: any;
   secondAchv: any;
 
   constructor(
@@ -31,12 +31,12 @@ export class HomePage {
       if (this.platform.is("cordova")){
         this.URL_da_API = "https://hackaton-api.herokuapp.com/"
       }
+
+      
   }
 
   ionViewWillLoad(){
     this.getUserInUsers();
-    this.verifyFirstAchv();
-    this.verifySecondAchv();
   }
 
   getUserInUsers(){
@@ -47,6 +47,8 @@ export class HomePage {
           if ( this.users[_p].email == this.auth.getEmail() ){  
             this.user = this.users[_p];
             this.storage.set('user', this.user);
+            this.verifyFirstAchv();
+            this.verifySecondAchv();
           }
         }
       }, e => {
@@ -71,9 +73,11 @@ export class HomePage {
   }
 
   verifyFirstAchv(){
+    console.log(this.user)
     this.http.get(this.URL_da_API + "ach1/" + this.user.id)
       .subscribe(data => {
-        this.firtAchv = data.json();
+        console.log(data.json());
+        this.firstAchv = data.json();
       }, e => {
         console.log(e);
       });
@@ -82,6 +86,7 @@ export class HomePage {
   verifySecondAchv(){
     this.http.get(this.URL_da_API + "ach2/" + this.user.id)
     .subscribe(data => {
+      console.log(data.json());
       this.secondAchv = data.json();
     }, e => {
       console.log(e);

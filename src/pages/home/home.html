@@ -32,13 +32,13 @@
         <ion-row> 
           <ion-col>          
             <div id="achievement">
-              <div class="item" *ngIf="firstAchv.check == true">
+              <div class="item" *ngIf="firstAchv != null && firstAchv.check != false" >
                 <ion-icon name="book"></ion-icon>
               </div> 
-              <div class="item" *ngIf="secondAchv.check == true">                
+              <div class="item" *ngIf="secondAchv != null && firstAchv.check != false">                
                 <ion-icon name="compass"></ion-icon>
               </div>
-              <div class="item" *ngIf="firstAchv.check != true && secondAchv.check != true">
+              <div class="item" *ngIf="firstAchv == null && secondAchv == null">
                 <p>Nenhuma conquista</p>
               </div>
             </div>
