@@ -171,7 +171,6 @@ export class TopicShowPage {
     this.http.get(this.URL_da_API+"topics/" + this.topic.id + "/show_dislike/" + this.user.id)
     .subscribe(dados => {
       this.dislikes = dados.json();
-      this.presentToastDislike()
       return dados;
     }, e => {
       console.log(e);
@@ -187,6 +186,7 @@ export class TopicShowPage {
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/dislike/" + this.user.id, dislike)
     .subscribe(data => {
       this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
+      this.presentToastDislike()
       return data;
     }, error => {
       console.log(error);
