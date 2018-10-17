@@ -57,7 +57,7 @@ export class HomePage {
   }
 
   openPerfil(){
-    this.navCtrl.push(PerfilPage);
+    this.navCtrl.push(PerfilPage, { user: this.user});
   }
 
   logout() {

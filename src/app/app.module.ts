@@ -26,6 +26,9 @@ import { PipesModule } from '../pipes/pipes.module';
 import { TopicsPageModule } from '../pages/topics/topics.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Base64 } from '@ionic-native/base64';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -59,7 +62,9 @@ import { PerfilPageModule } from '../pages/perfil/perfil.module';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    ImagePicker,
+    Base64
   ]
 })
 export class AppModule {}

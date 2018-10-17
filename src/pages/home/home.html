@@ -11,8 +11,9 @@ ion<ion-header>
     <ion-grid (click)="openPerfil(user.id)">
      <ion-row *ngIf="user!=undefined">
        <ion-col col-4>
-          <ion-avatar  item-start >
-              <img  id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar"> 
+          <ion-avatar item-start >
+              <img *ngIf="user.image.url == null" id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar">
+              <img *ngIf="user.image.url != null" id="UsAva" src="user.image" alt="avatar"> 
           </ion-avatar>
         </ion-col>
         
