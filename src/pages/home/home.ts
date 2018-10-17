@@ -18,6 +18,9 @@ export class HomePage {
   users: any = [];
   user: any;
 
+  firtAchv: any;
+  secondAchv: any;
+
   constructor(
     public navCtrl: NavController, 
     public menuCtrl: MenuController,
@@ -32,6 +35,8 @@ export class HomePage {
 
   ionViewWillLoad(){
     this.getUserInUsers();
+    this.verifyFirstAchv();
+    this.verifySecondAchv();
   }
 
   getUserInUsers(){
@@ -63,6 +68,24 @@ export class HomePage {
 
   openPerfil(){
     this.navCtrl.push(PerfilPage, { user: this.user });
+  }
+
+  verifyFirstAchv(){
+    this.http.get(this.URL_da_API + "ach1/" + this.user.id)
+      .subscribe(data => {
+        this.firtAchv = data.json();
+      }, e => {
+        console.log(e);
+      });
+  }
+
+  verifySecondAchv(){
+    this.http.get(this.URL_da_API + "ach2/" + this.user.id)
+    .subscribe(data => {
+      this.secondAchv = data.json();
+    }, e => {
+      console.log(e);
+    });
   }
 
   logout() {

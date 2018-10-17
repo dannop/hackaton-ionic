@@ -23,7 +23,7 @@
         <ion-row> 
           <ion-col>
             <h1 *ngIf="user.first_name != ''"> {{ user.first_name }} {{ user.last_name }}</h1>
-            <h1 *ngIf="user.first_name == ''"> Cadastre-se </h1>
+            <h1 *ngIf="user.first_name == ''"> Cadastro pendente </h1>
             <h1 *ngIf="user.level != ''">Level: {{ user.level }} </h1> 
             <h1 *ngIf="user.level == ''">Level: Não Disponível </h1> 
           </ion-col>
@@ -32,14 +32,14 @@
         <ion-row> 
           <ion-col>          
             <div id="achievement">
-              <div class="item">
+              <div class="item" *ngIf="firstAchv.check == true">
                 <ion-icon name="book"></ion-icon>
               </div> 
-              <div class="item">                
+              <div class="item" *ngIf="secondAchv.check == true">                
                 <ion-icon name="compass"></ion-icon>
               </div>
-              <div class="item">
-                <ion-icon name="create"></ion-icon>
+              <div class="item" *ngIf="firstAchv.check != true && secondAchv.check != true">
+                <p>Nenhuma conquista</p>
               </div>
             </div>
           </ion-col>
