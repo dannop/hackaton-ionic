@@ -31,12 +31,16 @@ export class TopicShowPage {
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
     }
 
-    this.topic = navParams.get('topic');
+  }
+
+  ionViewWillLoad(){
+    this.storage.get('user').then((val) => {this.user = val; });
+    this.user = this.navParams.get('user');
+    this.topic = this.navParams.get('topic');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicShowPage');
-    this.storage.get('token').then((val) => {this.user = val; });
     this.getComments();
     this.getLike();
     this.getDislike();

@@ -53,7 +53,7 @@ export class HomePage {
   }
 
   openTopics(){
-    this.navCtrl.push(TopicsPage);
+    this.navCtrl.push(TopicsPage, { user: this.user });
   }
 
   openPerfil(){

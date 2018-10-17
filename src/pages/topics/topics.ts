@@ -15,6 +15,7 @@ export class TopicsPage {
   URL_da_API: string = "/herokuapi/";
   topics: any = [];
   topic: Response;
+  user: any;
 
   descending: boolean = false;
   order: number;
@@ -29,6 +30,12 @@ export class TopicsPage {
       if (this.platform.is("cordova")){
         this.URL_da_API = "https://hackaton-api.herokuapp.com/"
       }
+  }
+
+  ionViewWillLoad(){
+    //this.storage.get('user').then((val) => {this.user = val; });
+    this.user = this.navParams.get('user');
+    console.log(this.user);
   }
 
   ionViewDidLoad() {
@@ -51,7 +58,7 @@ export class TopicsPage {
     this.http.get(this.URL_da_API+"topics/"+id)
       .subscribe(dados => {
         this.topic = dados.json();
-        this.navCtrl.push(TopicShowPage, { topic: this.topic });
+        this.navCtrl.push(TopicShowPage, { user: this.user, topic: this.topic });
     return dados;
       }, e => {
       console.log(e);
