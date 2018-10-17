@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { TopicShowPage } from '../topics/topic-show/topic-show';
@@ -30,7 +30,8 @@ export class DiscoverPage {
     public navParams: NavParams,
     public storage: Storage,
     private http: Http,
-    private platform: Platform) {
+    private platform: Platform,
+    private toastCtrl: ToastController) {
     if (this.platform.is("cordova")){
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
     }
@@ -98,6 +99,48 @@ export class DiscoverPage {
     });
   }
 
+  presentToastLike() {
+    let toast = this.toastCtrl.create({
+      message: 'Você gostou do tópico!',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  presentToastDislike() {
+    let toast = this.toastCtrl.create({
+      message: 'Você não gostou do tópico!',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
+  presentToastRemove() {
+    let toast = this.toastCtrl.create({
+      message: 'Você removeu!',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
   getLike(){
     this.http.get(this.URL_da_API+"topics/" + this.topic.id + "/show_like/" + this.user.id)
     .subscribe(dados => {
@@ -117,6 +160,7 @@ export class DiscoverPage {
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/like/" + this.user.id, like)
     .subscribe(data => {
       this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
+      this.presentToastLike()
       return data;
     }, error => {
       console.log(error);
@@ -128,6 +172,7 @@ export class DiscoverPage {
       .subscribe(dados => {
         const index = this.likes.findIndex(est => est.id === parseInt(id));
         this.likes.splice(index, 1);
+        this.presentToastRemove();
         return dados;
       }, e => {
       console.log(e);
@@ -138,6 +183,7 @@ export class DiscoverPage {
     this.http.get(this.URL_da_API+"topics/" + this.topic.id + "/show_dislike/" + this.user.id)
     .subscribe(dados => {
       this.dislikes = dados.json();
+      this.presentToastDislike()
       return dados;
     }, e => {
       console.log(e);
@@ -164,6 +210,7 @@ export class DiscoverPage {
       .subscribe(dados => {
         const index = this.dislikes.findIndex(est => est.id === parseInt(id));
         this.dislikes.splice(index, 1);
+        this.presentToastRemove();
         return dados;
       }, e => {
       console.log(e);
