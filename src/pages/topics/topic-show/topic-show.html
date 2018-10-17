@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ topic.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3> {{ topic.category.name }} </h3>
+  <p> {{ topic.content }} </p>
+
+  <ion-fab right bottom>
+    <button ion-fab class="btn-edit" (click) = "goToEdit()">
+      <ion-icon name="md-create"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

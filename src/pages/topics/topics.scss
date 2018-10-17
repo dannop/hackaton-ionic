@@ -1,3 +1,30 @@
 page-topics {
+    .searchbar-topics {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0.5s linear, opacity 0.5s linear;
+    }
 
+    searchbar-container {
+        max-height: 500px;
+        transition: max-height 0.25s ease-in;
+    }
+
+    .hidden-container {
+        max-height: 0;
+        transition: max-height 0.25s ease-out;
+        overflow: hidden;
+    }
+
+    .btn-search{
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0.5s linear, opacity 0.5s linear;
+    }
+    
+    .hidden {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 0.5s linear, opacity 0.5s linear;
+    }
 }
