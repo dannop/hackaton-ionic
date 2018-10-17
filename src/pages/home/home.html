@@ -1,6 +1,10 @@
 ion<ion-header>
   <ion-navbar>
     <ion-title >BILU</ion-title>
+    <ion-buttons end>
+        <ion-item (click)="logout()" *ngIf="auth.authenticated">
+            <ion-icon name="log-out" item-rigth></ion-icon></ion-item>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -14,7 +18,7 @@ ion<ion-header>
         <ion-col col-8 col-xl-16>
             <ion-row> 
               <ion-col>
-                      <h1>DANNO DANNO  </h1>    
+                      <h1>DANNO </h1>    
               </ion-col>
             </ion-row>
             <ion-row> 
@@ -40,12 +44,12 @@ ion<ion-header>
       </ion-row>
   </ion-grid>
  <div>
-    <button class="BTH" (click)="openUsers()">
+    <button class="BTH" (click)="openTopics()">
         <p>Descobrir</p>
       </button>
       <br>
-    <button class="BTH" (click)="openUsers()">
-          <p>Preferencias</p>
+    <button class="BTH" (click)="openTopics()">
+          <p>Buscar</p>
         </button>
       <br>
     <button class="BTH" (click)="openUsers()">
@@ -54,14 +58,5 @@ ion<ion-header>
       <br>
  </div>
   <!--<ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>-->
-
-  <ion-item (click)="logout()" *ngIf="auth.authenticated">
-    <ion-icon name="log-out" item-left></ion-icon>
-      Log out
-    </ion-item>
-
-  <button (click)="openUsers()">
-    <p>Usuários</p>
-  </button>
 
 </ion-content>

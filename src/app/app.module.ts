@@ -7,10 +7,8 @@ import { MyApp } from './app.component';
 
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { UsersPage } from '../pages/users/users';
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +28,6 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     MyApp,
     ContactPage,
     HomePage,
-    TabsPage,
     UsersPage,
     LoginPage
   ],
@@ -49,7 +46,6 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     MyApp,
     ContactPage,
     HomePage,
-    TabsPage,
     UsersPage,
     LoginPage
   ],

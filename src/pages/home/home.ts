@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, MenuController } from 'ionic-angular';
 import { UsersPage } from '../users/users';
 import { AuthService } from '../../services/auth.service';
+import { TopicsPage } from '../topics/topics';
 
 
 @Component({
@@ -19,6 +20,10 @@ export class HomePage {
 
   openUsers(){
     this.navCtrl.push(UsersPage);
+  }
+
+  openTopics(){
+    this.navCtrl.push(TopicsPage);
   }
 
   logout() {

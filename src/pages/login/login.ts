@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { AuthService } from '../../services/auth.service';
 import { SignupPage } from '../signup/signup';
-import { TabsPage } from '../tabs/tabs';
+import { HomePage } from '../home/home';
 
 import { CompleteSignupPage } from "../complete-signup/complete-signup";
 
@@ -47,7 +47,7 @@ export class LoginPage {
     };
     this.auth.signInWithEmail(credentials)
       .then(
-        () => this.navCtrl.setRoot(TabsPage),
+        () => this.navCtrl.setRoot(HomePage),
         error => this.loginError = error.message
       );
   }
