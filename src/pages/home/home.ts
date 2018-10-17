@@ -6,6 +6,7 @@ import { PerfilPage } from '../perfil/perfil';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { FavoritesPage } from '../favorites/favorites';
+import { DiscoverPage } from '../discover/discover';
 
 
 @Component({
@@ -54,6 +55,10 @@ export class HomePage {
 
   openTopics(){
     this.navCtrl.push(TopicsPage, { user: this.user });
+  }
+
+  openRandomTopics(){
+    this.navCtrl.push(DiscoverPage, { user: this.user });
   }
 
   openPerfil(){
