@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, MenuController, Platform } from 'ionic-angular';
-import { UsersPage } from '../users/users';
 import { AuthService } from '../../services/auth.service';
 import { TopicsPage } from '../topics/topics';
 import { PerfilPage } from '../perfil/perfil';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { FavoritesPage } from '../favorites/favorites';
 
 
 @Component({
@@ -48,8 +48,8 @@ export class HomePage {
       });
   }
 
-  openUsers(){
-    this.navCtrl.push(UsersPage);
+  openFavorites(){
+    this.navCtrl.push(FavoritesPage, { user: this.user });
   }
 
   openTopics(){
@@ -57,7 +57,7 @@ export class HomePage {
   }
 
   openPerfil(){
-    this.navCtrl.push(PerfilPage, { user: this.user});
+    this.navCtrl.push(PerfilPage, { user: this.user });
   }
 
   logout() {

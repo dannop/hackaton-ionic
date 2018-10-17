@@ -34,7 +34,6 @@ export class PerfilPage {
   ionViewWillLoad(){
     this.storage.get('user').then((val) => {this.user = val; });
     this.user = this.navParams.get('user');
-    console.log(this.user);
   }
 
   ionViewDidLoad() {
@@ -54,6 +53,7 @@ export class PerfilPage {
           console.log(err);
         });
       }
+      console.log(this.user);
     }, (err) => { });
   }
 
