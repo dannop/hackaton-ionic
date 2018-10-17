@@ -20,9 +20,10 @@ export class PerfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerfilPage');
     this.storage.get('token').then((val) => {this.user = val; });
+
   }
 
-  getUser(){
+  updateUser(){
 
   }
 
