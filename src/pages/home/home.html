@@ -2,8 +2,9 @@ ion<ion-header>
   <ion-navbar>
     <ion-title >BILU</ion-title>
     <ion-buttons end>
-        <ion-item (click)="logout()" *ngIf="auth.authenticated">
-            <ion-icon name="log-out" item-rigth></ion-icon></ion-item>
+      <ion-item (click)="logout()" *ngIf="auth.authenticated">
+        <ion-icon name="log-out" item-rigth></ion-icon>
+      </ion-item>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -12,7 +13,7 @@ ion<ion-header>
      <ion-row *ngIf="user!=undefined">
        <ion-col col-4>
           <ion-avatar item-start >
-              <img *ngIf="user.image.url == null" id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar">
+              <img *ngIf="user.image.url == null" id="UsAva" src="../../assets/imgs/avatar.png" alt="avatar">
               <img *ngIf="user.image.url != null" id="UsAva" src="user.image" alt="avatar"> 
           </ion-avatar>
         </ion-col>

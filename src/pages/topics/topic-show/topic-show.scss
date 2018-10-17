@@ -1,3 +1,55 @@
-page-topic-show {
-
+#bt_esq{
+    background-color: blue;
+    transform: scale(1.5);
 }
+
+#bt_dir{
+    background-color: blue;
+    transform: scale(1.5);
+}
+
+
+#CMMT{
+    background-color: rgb(250, 250, 250);
+    box-sizing: border-box;
+    text-decoration-color: azure;
+    color: black;
+}
+#itemC{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.btn-close{
+    padding-bottom: 10%;
+
+    background-color: black;
+}
+
+#dir{
+    height: 30%;
+    width: 10%;
+    position: relative;
+    top: 50%;
+    left: 90%;
+    background-color: transparent;
+}
+#esq{
+    height: 8%;
+    width: 10%;
+    position: relative;
+    top: 50%;
+    background-color: transparent;
+}
+#img
+{
+   position: absolute;
+   
+   left: 0px;
+}
+#img2
+{
+   position: absolute;
+    left: 0px;
+}
+
