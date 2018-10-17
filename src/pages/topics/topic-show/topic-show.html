@@ -1,13 +1,13 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>{{ topic.title }}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  <button ion-button (click)="createLike()" block>Gostei</button>
+  <button ion-button (click)="createDislike()" block>Não Gostei</button>
+
   <h3> {{ topic.category.name }} </h3>
   <p> {{ topic.content }} </p>
 
@@ -16,4 +16,24 @@
       <ion-icon name="md-create"></ion-icon>
     </button>
   </ion-fab>
+
+  <ion-grid class = "grid-user-topics">
+    <h2>Comentários</h2>
+    <ion-row *ngFor="let c of comments">
+      <ion-col nowrap class="topic-texto">
+        <ion-item no-padding class= "item-comment">
+          <p>Autor: {{ c.user.first_name }}</p>
+          <p>{{ c.content }}</p>
+          <button class = "btn-close" ion-button icon-only small (click) ="destroyComment(c.id)" float-right>
+            <ion-icon name = "md-close"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <form (ngSubmit)="createComment()">
+    <ion-input type="text" placeholder="Digite seu comentário" [(ngModel)]="content" name="content"></ion-input>
+    <button ion-button type="submit" block>Comentar</button>
+  </form>
 </ion-content>
