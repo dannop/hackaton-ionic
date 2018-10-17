@@ -4,7 +4,7 @@ import { NavController, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage } from '../pages/home/home';
 import { AuthService } from '../services/auth.service';
 import { LoginPage } from '../pages/login/login';
 
@@ -37,7 +37,7 @@ export class MyApp {
       .subscribe(
         user => {
           if (user) {
-            this.rootPage = TabsPage;
+            this.rootPage = HomePage;
           } else {
             this.rootPage = LoginPage;
           }

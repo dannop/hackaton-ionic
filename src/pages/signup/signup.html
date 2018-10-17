@@ -1,11 +1,11 @@
 <ion-header>
 	<ion-navbar>
-		<ion-title>Sign up</ion-title>
+		<ion-title>cadastro</ion-title>
 	</ion-navbar>
 </ion-header>
 
 <ion-content>
-
+<div id="menu">
 	<form (ngSubmit)="signup()" [formGroup]="form">
 		<ion-list inset>
 
@@ -32,4 +32,5 @@
 			<button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>
 		</div>
 	</form>
+  </div>
 </ion-content>

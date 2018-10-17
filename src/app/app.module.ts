@@ -7,10 +7,8 @@ import { MyApp } from './app.component';
 
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { UsersPage } from '../pages/users/users';
 import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,6 +19,7 @@ import { firebaseConfig } from '../config';
 
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { SignupPageModule } from '../pages/signup/signup.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { TopicsPageModule } from '../pages/topics/topics.module';
 
@@ -29,15 +28,14 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     MyApp,
     ContactPage,
     HomePage,
-    TabsPage,
     UsersPage,
-    SignupPage,
     LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     NgxErrorsModule,
+    SignupPageModule,
     PipesModule,
     TopicsPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -48,9 +46,7 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     MyApp,
     ContactPage,
     HomePage,
-    TabsPage,
     UsersPage,
-    SignupPage,
     LoginPage
   ],
   providers: [

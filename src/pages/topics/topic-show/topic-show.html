@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ topic.title }}</ion-title>
+    <ion-title>{{ topic.category.name  }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,6 +9,7 @@
   <button ion-button (click)="createDislike()" block>Não Gostei</button>
 
   <h3> {{ topic.category.name }} </h3>
+  <h3> {{ topic.title  }} </h3>
   <p> {{ topic.content }} </p>
 
   <ion-fab right bottom>
