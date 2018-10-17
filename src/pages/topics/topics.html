@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-    <div class = "searchbar-container hidden-container">
+      <div class = "searchbar-container hidden-container">
         <ion-searchbar class="searchbar-topics hidden" [showCancelButton]="true" [(ngModel)]="terms"
         (ionCancel)="showSearchbar()" placeholder="Digite o nome do tópico"></ion-searchbar>
       </div>
@@ -18,9 +18,9 @@
             <div class = "col-content-wrapper" (click) ="getTopic(topic.id)">
               <ion-item no-padding class = "item-topic">
                 <h2>{{ topic.title }}</h2>
-                <button class = "btn-close" ion-button icon-only small (click) ="destroyTopic(topic.id)" float-right>
-                  <ion-icon name = "md-close"></ion-icon>
-                </button>
+                  <button class = "btn-close" ion-button icon-only small (click) ="destroyTopic(topic.id)" float-right>
+                    <ion-icon name = "md-close"></ion-icon>
+                  </button>
               </ion-item>
             </div>
           </ion-col>
@@ -34,16 +34,8 @@
       </ion-fab>
     
       <ion-fab left bottom>
-        <button ion-fab class="btn-search">
-          <ion-icon name="add"></ion-icon>
-        </button>
-        <ion-fab-list side="top">
-          <button ion-fab class="btn-search" (click)="filtroAlfabetico()">
+          <button left bottom ion-fab class="btn-search" (click)="filtroAlfabetico()">
             <p>A-z</p>
           </button>
-          <button ion-fab class="btn-search" (click)="goToNew()">
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-fab-list>
       </ion-fab>
 </ion-content>
