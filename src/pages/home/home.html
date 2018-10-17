@@ -8,22 +8,24 @@ ion<ion-header>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    <ion-grid>
-     <ion-row>
+    <ion-grid (click)="openPerfil(user.id)">
+     <ion-row *ngIf="user!=undefined">
        <ion-col col-4>
           <ion-avatar  item-start >
               <img  id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar"> 
           </ion-avatar>
         </ion-col>
+        
         <ion-col col-8 col-xl-16>
             <ion-row> 
               <ion-col>
-                      <h1>DANNO </h1>    
+                  <h1 *ngIf="user.first_name != ''"> {{ user.first_name }}</h1>
+                  <h1 *ngIf="user.first_name == ''"> Preencha seu nome</h1>  
               </ion-col>
             </ion-row>
             <ion-row> 
               <ion-col>
-                    <h1>Level 100 </h1>    
+                    <h1>Level {{ user.level }} </h1>    
                     <div id="achievement">
                       <div id="AC1" class="AC" >
                         <img src="" alt="">
@@ -34,13 +36,17 @@ ion<ion-header>
                           <ion-icon name="compass"></ion-icon>
                       </div>
                       <div id="AC3" class="AC">
-                          <img src="" alt=""><!-- the -->
+                          <img src="" alt="">
                           <ion-icon name="create"></ion-icon>
                       </div>
                     </div>
               </ion-col>
             </ion-row>
         </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="user == undefined"> 
+        <h1>Complete seus dados aqui</h1>
       </ion-row>
   </ion-grid>
  <div>
@@ -57,6 +63,5 @@ ion<ion-header>
       </button>
       <br>
  </div>
-  <!--<ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>-->
 
 </ion-content>

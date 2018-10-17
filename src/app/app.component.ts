@@ -5,8 +5,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { AuthService } from '../services/auth.service';
 import { LoginPage } from '../pages/login/login';
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +22,8 @@ export class MyApp {
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen, 
     private auth: AuthService) {
-    this.initializeApp();
-
+      
+      this.initializeApp();
   }
 
   initializeApp(){

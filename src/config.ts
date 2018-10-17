@@ -5,5 +5,4 @@ export const firebaseConfig = {
     projectId: "hackatonn",
     storageBucket: "hackatonn.appspot.com",
     messagingSenderId: "140642167885"
-
 };

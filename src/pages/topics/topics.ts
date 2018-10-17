@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Http, Response } from "@angular/http";
 import { TopicShowPage } from './topic-show/topic-show';
 import { TopicNewPage } from './topic-new/topic-new';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -22,7 +24,8 @@ export class TopicsPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public http: Http,
-    public platform: Platform) {
+    public platform: Platform,
+    public storage: Storage) {
       if (this.platform.is("cordova")){
         this.URL_da_API = "https://hackaton-api.herokuapp.com/"
       }

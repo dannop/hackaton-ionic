@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Http } from "@angular/http";
 import { TopicEditPage } from '../topic-edit/topic-edit';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -12,15 +13,20 @@ import { TopicEditPage } from '../topic-edit/topic-edit';
 export class TopicShowPage {
   URL_da_API: string = "/herokuapi/";
   topic: any;
+  user: any;
 
   comments: any = [];
   content: string;
+
+  likes: any = [];
+  dislikes: any = [];
   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public platform: Platform,
-    public http: Http) {
+    public http: Http,
+    public storage: Storage) {
     if (this.platform.is("cordova")){
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
     }
@@ -30,7 +36,10 @@ export class TopicShowPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopicShowPage');
+    this.storage.get('token').then((val) => {this.user = val; });
     this.getComments();
+    this.getLike();
+    this.getDislike();
   }
 
   getComments(){
@@ -47,7 +56,7 @@ export class TopicShowPage {
     let comment = { 
       comment: {
         content: this.content, 
-        user_id: 1,
+        user_id: this.user.id,
         topic_id: this.topic.id 
       }
     }
@@ -72,13 +81,23 @@ export class TopicShowPage {
     });
   }
 
+  getLike(){
+    this.http.get(this.URL_da_API+"topics/" + this.topic.id + "/show_like/" + this.user.id)
+    .subscribe(dados => {
+      this.likes = dados.json();
+      return dados;
+    }, e => {
+      console.log(e);
+    });
+  }
+
   createLike(){
     let like = { 
-      user_id: 1,
+      user_id: this.user.id,
       topic_id: this.topic.id 
     }
 
-    this.http.post(this.URL_da_API + "topics/" + this.topic.id + "/likes", like)
+    this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/like/" + this.user.id, like)
     .subscribe(data => {
       this.navCtrl.push(TopicShowPage, { topic: this.topic });
       return data;
@@ -87,18 +106,50 @@ export class TopicShowPage {
     });
   }
 
+  removeLike(id: string){
+    this.http.delete(this.URL_da_API+"topics/" + this.topic.id + "/like/" + id)
+      .subscribe(dados => {
+        const index = this.likes.findIndex(est => est.id === parseInt(id));
+        this.likes.splice(index, 1);
+        return dados;
+      }, e => {
+      console.log(e);
+    });
+  }
+
+  getDislike(){
+    this.http.get(this.URL_da_API+"topics/" + this.topic.id + "/show_dislike/" + this.user.id)
+    .subscribe(dados => {
+      this.dislikes = dados.json();
+      return dados;
+    }, e => {
+      console.log(e);
+    });
+  }
+
   createDislike(){
     let dislike = { 
-      user_id: 1,
+      user_id: this.user.id,
       topic_id: this.topic.id 
     }
 
-    this.http.post(this.URL_da_API + "topics/" + this.topic.id + "/dislikes", dislike)
+    this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/dislike/" + this.user.id, dislike)
     .subscribe(data => {
       this.navCtrl.push(TopicShowPage, { topic: this.topic });
       return data;
     }, error => {
       console.log(error);
+    });
+  }
+
+  removeDislike(id: string){
+    this.http.delete(this.URL_da_API+"topics/" + this.topic.id + "/dislike/" + id)
+      .subscribe(dados => {
+        const index = this.dislikes.findIndex(est => est.id === parseInt(id));
+        this.dislikes.splice(index, 1);
+        return dados;
+      }, e => {
+      console.log(e);
     });
   }
 
