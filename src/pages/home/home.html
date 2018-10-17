@@ -1,22 +1,23 @@
-ion<ion-header>
-  <ion-navbar>
-    <ion-title >BILU</ion-title>
-    <ion-buttons end>
-      <ion-item (click)="logout()" *ngIf="auth.authenticated">
-        <ion-icon name="log-out" item-rigth></ion-icon>
-      </ion-item>
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title> Bilu </ion-title>
+    <ion-buttons end (click)="logout()" *ngIf="auth.authenticated">
+      <button ion-button icon-only>
+        <ion-icon class="logout-icon" name="log-out"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
+
 <ion-content padding>
-    <ion-grid (click)="openPerfil(user.id)">
-     <ion-row *ngIf="user!=undefined">
-       <ion-col col-4>
-          <ion-avatar item-start >
-              <img *ngIf="user.image.url == null" id="UsAva" src="../../assets/imgs/avatar.png" alt="avatar">
-              <img *ngIf="user.image.url != null" id="UsAva" src="user.image" alt="avatar"> 
-          </ion-avatar>
-        </ion-col>
+  <ion-grid (click)="openPerfil(user.id)">
+    <ion-row *ngIf="user!=undefined">
+      <ion-col col-4>
+        <ion-avatar item-start  >
+          <img *ngIf="user.image.url == null" class="image-avatar" src="../../assets/imgs/avatar.png" alt="avatar">
+          <img *ngIf="user.image.url != null" class="image-avatar" src="user.image" alt="avatar"> 
+        </ion-avatar>
+      </ion-col>
         
         <ion-col col-8 col-xl-16>
             <ion-row> 
@@ -52,18 +53,23 @@ ion<ion-header>
       </ion-row>
   </ion-grid>
  <div>
-    <button class="BTH" (click)="openTopics()">
+    <button class="nav-btn" (click)="openTopics()">
         <p>Descobrir</p>
       </button>
       <br>
-    <button class="BTH" (click)="openTopics()">
-          <p>Buscar</p>
-        </button>
-      <br>
-    <button class="BTH" (click)="openFavorites()">
-            <p>Favoritos</p>
-      </button>
-      <br>
+    
+    <button class="nav-btn" (click)="openTopics()">
+      <p>Buscar</p>
+    </button>
+    
+    <br>
+      
+    <button class="nav-btn"  (click)="openFavorites()">
+      <p>Favoritos</p>
+    </button>
+    
+    <br>
+
  </div>
 
 </ion-content>

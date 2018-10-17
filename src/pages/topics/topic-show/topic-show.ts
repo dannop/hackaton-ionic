@@ -30,13 +30,14 @@ export class TopicShowPage {
     if (this.platform.is("cordova")){
       this.URL_da_API = "https://hackaton-api.herokuapp.com/"
     }
-
+    this.user = this.navParams.get('user');
+    this.topic = this.navParams.get('topic');
   }
 
   ionViewWillLoad(){
-    this.storage.get('user').then((val) => {this.user = val; });
-    this.user = this.navParams.get('user');
-    this.topic = this.navParams.get('topic');
+    //this.storage.get('user').then((val) => {this.user = val; });
+    
+    console.log(this.user, this.topic);
   }
 
   ionViewDidLoad() {
@@ -67,7 +68,7 @@ export class TopicShowPage {
 
     this.http.post(this.URL_da_API + "topics/" + this.topic.id + "/comments", comment)
     .subscribe(data => {
-      this.navCtrl.push(TopicShowPage, { topic: this.topic });
+      this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
       return data;
     }, error => {
       console.log(error);
@@ -103,7 +104,7 @@ export class TopicShowPage {
 
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/like/" + this.user.id, like)
     .subscribe(data => {
-      this.navCtrl.push(TopicShowPage, { topic: this.topic });
+      this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
       return data;
     }, error => {
       console.log(error);
@@ -139,7 +140,7 @@ export class TopicShowPage {
 
     this.http.patch(this.URL_da_API + "topics/" + this.topic.id + "/dislike/" + this.user.id, dislike)
     .subscribe(data => {
-      this.navCtrl.push(TopicShowPage, { topic: this.topic });
+      this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
       return data;
     }, error => {
       console.log(error);
