@@ -1,12 +1,12 @@
-ion<ion-header>
-  <ion-navbar>
-    <ion-title >BILU</ion-title>
-    <ion-buttons end>
-        <ion-item (click)="logout()" *ngIf="auth.authenticated">
-            <ion-icon name="log-out" item-rigth></ion-icon></ion-item>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
+<ion-header>
+    <ion-navbar color>
+     <ion-title> <span text-color="cor">BILU</span></ion-title>
+     <ion-buttons end>
+         <ion-item class= "logout" (click)="logout()" *ngIf="auth.authenticated">
+              <ion-icon style="color:white" name="md-exit" item-rigth></ion-icon></ion-item>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 <ion-content padding>
     <ion-grid (click)="openPerfil(user.id)">
      <ion-row *ngIf="user!=undefined">
