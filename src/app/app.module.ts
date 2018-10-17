@@ -14,14 +14,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
+import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../config';
 
-import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+
 import { SignupPageModule } from '../pages/signup/signup.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { TopicsPageModule } from '../pages/topics/topics.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     SignupPageModule,
     PipesModule,
     TopicsPageModule,
+    PerfilPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
@@ -53,8 +56,8 @@ import { TopicsPageModule } from '../pages/topics/topics.module';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuth,
-    AuthService
+    AuthService,
+    AngularFireAuth
   ]
 })
 export class AppModule {}
