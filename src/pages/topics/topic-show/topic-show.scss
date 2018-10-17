@@ -1,3 +1,37 @@
-page-topic-show {
-
+#bt_esq{
+    background-color: blue;
+    transform: scale(1.5);
 }
+
+#bt_dir{
+    background-color: blue;
+    transform: scale(1.5);
+}
+
+#dir{
+    height: 30%;
+    width: 10%;
+    position: relative;
+    top: 50%;
+    left: 90%;
+    background-color: transparent;
+}
+#esq{
+    height: 8%;
+    width: 10%;
+    position: relative;
+    top: 50%;
+    background-color: transparent;
+}
+#img
+{
+   position: absolute;
+   
+   left: 0px;
+}
+#img2
+{
+   position: absolute;
+    left: 0px;
+}
+
