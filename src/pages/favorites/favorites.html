@@ -8,16 +8,17 @@
 
 
 <ion-content padding>
-  <div class="favorites" *ngIf="favorites != null">
+  <h2 *ngIf="favorites[0] == undefined"> Não Possui Favoritos </h2>
+  
+  <div class="favorites" *ngIf="favorites[0] != undefined">
     <ion-list>
       <ion-item *ngFor="let f of favorites" >
         <div class="btn-topic" (click) ="getTopic(f.topic.id)">
-          <p>{{ f.topic.title }}</p>
+          <p>{{ f.title }}</p>
         </div>  
       </ion-item>
     </ion-list>
   </div>
 
-  <h2 *ngIf="favorites == null"> Não Possui Favoritos </h2>
   
 </ion-content>
