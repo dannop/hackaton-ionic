@@ -5,8 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button (click)="createLike()" block>Gostei</button>
-  <button ion-button (click)="createDislike()" block>Não Gostei</button>
+  <button ion-button *ngIf="like==null" (click)="createLike()" block>Gostei</button>
+  <button ion-button color="dark" *ngIf="like!=null" (click)="removeLike(1)" block >Gostei</button>
+  <button ion-button *ngIf="dislike==null" (click)="createDislike()" block>Não Gostei</button>
+  <button ion-button color="dark" *ngIf="dislike!=null" (click)="removeDislike(1)" block >Não Gostei</button>
 
   <h3> {{ topic.category.name }} </h3>
   <h3> {{ topic.title  }} </h3>
