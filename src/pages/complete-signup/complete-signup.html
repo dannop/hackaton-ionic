@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Quase lá</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div id="menu">
+      <form [formGroup]="completeForm">
+        <ion-item>
+            <ion-input [formControl]="completeForm.controls['FirstName']"  placeholder="Primeiro Nome" type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-input [formControl]="completeForm.controls['LastName']"  placeholder="Ultimo Nome" type="text"></ion-input>
+          </ion-item>
+         <!-- <ion-item>
+              <ion-input [formControl]="completeForm.controls['Photo']"  type="file"></ion-input>
+          </ion-item>-->
+          <button ion-button full type="submit" [disabled]="!completeForm.valid" (click)="signup()">Pronto</button>
+      </form>
+      </div>
+  </ion-content>

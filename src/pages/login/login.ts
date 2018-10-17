@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 
+import { CompleteSignupPage } from "../complete-signup/complete-signup";
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -29,7 +31,9 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
+  openTeste(){
+    this.navCtrl.push(CompleteSignupPage);
+  }
   login() {
     let data = this.loginForm.value;
 

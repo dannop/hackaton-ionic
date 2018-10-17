@@ -22,6 +22,7 @@ import { firebaseConfig } from '../config';
 
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { SignupPageModule } from '../pages/signup/signup.module';
 
 @NgModule({
   declarations: [
@@ -31,13 +32,13 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     HomePage,
     TabsPage,
     UsersPage,
-    SignupPage,
     LoginPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     NgxErrorsModule,
+    SignupPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     IonicModule.forRoot(MyApp)
   ],
@@ -49,7 +50,6 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     HomePage,
     TabsPage,
     UsersPage,
-    SignupPage,
     LoginPage
   ],
   providers: [

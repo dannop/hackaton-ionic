@@ -9,7 +9,6 @@ ion<ion-header>
        <ion-col col-4>
           <ion-avatar  item-start >
               <img  id="UsAva" src="../../assets/imgs/jackson-4.jpg" alt="avatar"> 
-     
           </ion-avatar>
         </ion-col>
         <ion-col col-8 col-xl-16>
@@ -54,7 +53,7 @@ ion<ion-header>
       </button>
       <br>
  </div>
-  <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>
+  <!--<ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>-->
 
   <ion-item (click)="logout()" *ngIf="auth.authenticated">
     <ion-icon name="log-out" item-left></ion-icon>
