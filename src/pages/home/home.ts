@@ -31,6 +31,7 @@ export class HomePage {
 
   ionViewWillLoad(){
     this.getUserInUsers();
+    this.storage.set('user', this.user);
   }
 
   getUserInUsers(){
@@ -40,7 +41,6 @@ export class HomePage {
         for (let _p= 0; _p < this.users.length; _p++) {
           if ( this.users[_p].email == this.auth.getEmail() ){  
             this.user = this.users[_p];
-            this.storage.set('user', this.user);
           }
         }
       }, e => {
