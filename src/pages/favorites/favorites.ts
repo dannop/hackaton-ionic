@@ -53,7 +53,7 @@ export class FavoritesPage {
     this.http.get(this.URL_da_API+"topics/"+id)
       .subscribe(dados => {
         this.topic = dados.json();
-        this.navCtrl.push(TopicShowPage, { topic: this.topic });
+        this.navCtrl.push(TopicShowPage, { topic: this.topic, user: this.user });
     return dados;
       }, e => {
       console.log(e);

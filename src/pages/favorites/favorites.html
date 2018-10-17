@@ -13,7 +13,7 @@
   <div class="favorites" *ngIf="favorites[0] != undefined">
     <ion-list>
       <ion-item *ngFor="let f of favorites" >
-        <div class="btn-topic" (click) ="getTopic(f.topic.id)">
+        <div class="btn-topic" (click) ="getTopic(f.id)">
           <p>{{ f.title }}</p>
         </div>  
       </ion-item>
